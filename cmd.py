@@ -19,7 +19,5 @@ class CmdCommand(sublime_plugin.TextCommand):
         else:
             threading.Thread(target=CmdCommand.runProgram,args=(self,)).start()
 
-    def runProgram(self):
-        with open('/home/gabor/sublime.log','w') as File:
-            File.write(';'.join(self.commands))        
+    def runProgram(self):       
         subprocess.call('xterm -e "'+';'.join(self.commands)+'"',shell=True)
